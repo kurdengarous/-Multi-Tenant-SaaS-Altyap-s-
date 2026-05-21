@@ -35,6 +35,8 @@ Ekran görüntüleri `screenshots/` klasörüne eklenmiştir. Uygulamayı çalı
 | **Muhabirler** | `/users` | Ajana kayıtlı muhabirler ve ajans yöneticisinin yeni muhabir davet etme ekranı |
 | **Faturalandırma** | `/billing` | Ajansın abonelik planı, kullanım limitleri ve plan yükseltme seçenekleri |
 | **Mimari** | `/architecture` | Sistemin teknik mimarisi, şema izolasyon modeli ve güvenlik sınırları |
+| **Hesap Bilgileri** | `/settings` | Ajans bilgileri ve izolasyon durumu |
+| **Profil Ayarları** | `/profile` | Kullanıcı profil bilgileri ve hesap ayarları |
 
 > Ekran görüntüleri `screenshots/` klasörüne kaydedilmiştir.
 

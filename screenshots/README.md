@@ -10,5 +10,6 @@ Bu klasör, uygulamanın demo ekran görüntülerini içermektedir.
 | `04-taslaklar.png` | Haber taslaklarını listeleme — `/projects` |
 | `05-muhabirler.png` | Muhabir yönetimi — `/users` |
 | `06-faturalama.png` | Abonelik planları — `/billing` |
-
+| `07-ayarlar.png` | Hesap bilgileri |
+| `08-profil.png` | Profil Ayarları|
 Ekran görüntüsü almak için `docker compose up -d` komutunu çalıştırdıktan sonra **http://localhost:9000** adresini ziyaret edin.
