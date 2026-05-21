@@ -63,6 +63,20 @@ export class BillingService {
     const ctx = currentTenant();
     if (!PLANS[plan]) throw new ForbiddenException('Unknown plan');
     const lim = PLANS[plan];
+
+    // Check if current usage exceeds new plan limits
+    const u = await this.usage();
+    if (u.used.projects > lim.max_projects) {
+      throw new ForbiddenException(
+        `Yeni plan limiti (${lim.max_projects} proje) aşıldı. Lütfen önce projelerinizi silerek sayıyı düşürün.`,
+      );
+    }
+    if (u.used.users > lim.max_users) {
+      throw new ForbiddenException(
+        `Yeni plan limiti (${lim.max_users} kullanıcı) aşıldı. Lütfen önce kullanıcı sayısını düşürün.`,
+      );
+    }
+
     await this.db.publicQuery(
       `UPDATE public.subscriptions
           SET plan=$2, max_users=$3, max_projects=$4, api_limit=$5, storage_mb=$6, updated_at=now()

@@ -15,8 +15,15 @@ export default function WorkspaceSelector() {
   }, []);
 
   function pick(t: Tenant) {
-    setTenant(t.slug);
-    router.push('/login');
+    const host = window.location.host; // e.g. localhost:9000
+    if (host.includes('localhost')) {
+      const port = window.location.port;
+      // Redirect to tatvantv.app.localhost:9000/login
+      window.location.href = `${window.location.protocol}//${t.slug}.app.localhost${port ? `:${port}` : ''}/login`;
+    } else {
+      setTenant(t.slug);
+      router.push('/login');
+    }
   }
 
   return (
@@ -32,7 +39,7 @@ export default function WorkspaceSelector() {
           {tenants.map(t => (
             <button key={t.slug} onClick={() => pick(t)}
               className="card text-left hover:border-brand-500 transition">
-              <div className="text-xs text-white/50 uppercase">{t.slug}.app.local</div>
+              <div className="text-xs text-white/50">{t.slug}.app.local</div>
               <div className="text-xl font-semibold mt-1">{t.name}</div>
               <div className="mt-4 inline-block px-2 py-0.5 rounded bg-brand-600/30 text-brand-500 text-xs uppercase">
                 {t.plan} planı

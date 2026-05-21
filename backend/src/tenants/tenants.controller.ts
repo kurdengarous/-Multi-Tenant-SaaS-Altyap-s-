@@ -6,6 +6,19 @@ import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 export class TenantsController {
   constructor(private readonly svc: TenantsService) {}
 
+  /** Root: friendly welcome message to avoid 404 on /api */
+  @Get()
+  root() {
+    return {
+      message: 'SaaS Backend is running',
+      version: '1.0.0',
+      endpoints: {
+        health: '/api/health',
+        tenants: '/api/tenants',
+      },
+    };
+  }
+
   /** Public: list of all tenants for the workspace selector. */
   @Get('tenants')
   list() { return this.svc.listAll(); }

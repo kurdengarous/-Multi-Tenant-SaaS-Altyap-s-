@@ -18,7 +18,7 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
   /**
    * Runs after token signature/expiry validation. We additionally enforce
    * that the token's tenant matches the request's resolved tenant. This is
-   * the line that prevents an Acme token from working against XYZ.
+   * the line that prevents a TatvanTV token from working against AhlatTV.
    */
   async validate(req: Request, payload: JwtPayload) {
     const tenant = (req as any).tenant;

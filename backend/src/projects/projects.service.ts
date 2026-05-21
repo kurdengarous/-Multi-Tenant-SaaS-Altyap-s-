@@ -29,4 +29,18 @@ export class ProjectsService {
     );
     return rows[0];
   }
+
+  async update(id: string, name: string, description: string) {
+    const rows = await this.db.tenantQuery<any>(
+      `UPDATE projects SET name=$2, description=$3 WHERE id=$1
+       RETURNING id, name, description, created_at`,
+      [id, name, description ?? null],
+    );
+    return rows[0];
+  }
+
+  async delete(id: string) {
+    await this.db.tenantQuery(`DELETE FROM projects WHERE id=$1`, [id]);
+    return { success: true };
+  }
 }

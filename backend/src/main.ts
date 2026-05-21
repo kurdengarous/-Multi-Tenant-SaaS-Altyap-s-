@@ -10,7 +10,7 @@ import { SeedService } from './database/seed.service';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule, { cors: true });
-  app.useGlobalPipes(new ValidationPipe({ whitelist: true, transform: true }));
+  app.useGlobalPipes(new ValidationPipe({ whitelist: false, transform: true }));
   app.setGlobalPrefix('api');
 
   // On boot: build public schema + tenant schemas, seed example data.

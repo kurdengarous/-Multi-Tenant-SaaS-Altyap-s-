@@ -36,29 +36,29 @@ export default function Dashboard() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-3xl font-bold">{d.tenant.slug}.app paneli</h1>
+        <h1 className="text-3xl font-bold">{d.tenant.slug}.ajans paneli</h1>
         <p className="text-white/60">
-          PostgreSQL şeması <span className="kbd">{d.tenant.schema}</span>{' '}
-          üzerinden, plan <span className="kbd">{d.tenant.plan}</span>.
+          Ajans veritabanı şeması <span className="kbd">{d.tenant.schema}</span>{' '}
+          üzerinden, ajans paketi <span className="kbd">{d.tenant.plan}</span>.
         </p>
       </div>
 
       <div className="grid gap-4 md:grid-cols-4">
-        {stat('Projeler', d.counts.projects, `sınır ${u.limits.max_projects}`)}
-        {stat('Kullanıcılar', d.counts.users, `sınır ${u.limits.max_users}`)}
+        {stat('Haberler', d.counts.projects, `sınır ${u.limits.max_projects}`)}
+        {stat('Muhabirler', d.counts.users, `sınır ${u.limits.max_users}`)}
         {stat('Kaynaklar', d.counts.resources)}
-        {stat('Depolama',  `${d.counts.storage_mb_used} MB`, `sınır ${u.limits.storage_mb} MB`)}
+        {stat('Veri Boyutu',  `${d.counts.storage_mb_used} MB`, `sınır ${u.limits.storage_mb} MB`)}
       </div>
 
       <div className="card">
-        <h2 className="font-semibold mb-3">Plan kullanımı</h2>
+        <h2 className="font-semibold mb-3">Paket Kullanımı</h2>
         <div className="space-y-3">
           <div>
-            <div className="flex justify-between text-sm mb-1"><span>Projeler</span><span>{u.used.projects} / {u.limits.max_projects}</span></div>
+            <div className="flex justify-between text-sm mb-1"><span>Haberler</span><span>{u.used.projects} / {u.limits.max_projects}</span></div>
             {bar(u.used.projects, u.limits.max_projects)}
           </div>
           <div>
-            <div className="flex justify-between text-sm mb-1"><span>Kullanıcılar</span><span>{u.used.users} / {u.limits.max_users}</span></div>
+            <div className="flex justify-between text-sm mb-1"><span>Muhabirler</span><span>{u.used.users} / {u.limits.max_users}</span></div>
             {bar(u.used.users, u.limits.max_users)}
           </div>
           <div>

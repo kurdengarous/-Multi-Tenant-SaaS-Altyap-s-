@@ -47,9 +47,9 @@ export default function Architecture() {
             │  ─ public.tenants / users / tenant_users        │
             │  ─ public.subscriptions                         │
             │  ─ public.audit_log    (satır-düzeyi demosu)     │
-            │  ─ acme.projects / resources / usage_logs       │
-            │  ─ xyz.projects  / resources / usage_logs       │
-            │  ─ nova.projects / resources / usage_logs       │
+            │  ─ tatvantv.projects / resources / usage_logs   │
+            │  ─ ahlattv.projects  / resources / usage_logs   │
+            │  ─ norsintv.projects / resources / usage_logs   │
             └────────────────────────────────────────────┘`}
         </pre>
       </div>

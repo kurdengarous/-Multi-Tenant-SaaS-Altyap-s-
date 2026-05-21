@@ -12,7 +12,7 @@ import { AsyncLocalStorage } from 'async_hooks';
  */
 export interface TenantContext {
   tenantId: string;       // public.tenants.id (uuid)
-  slug: string;           // 'acme' | 'xyz' | 'nova'
+  slug: string;           // 'tatvantv' | 'ahlattv' | 'norsintv'
   schema: string;         // postgres schema name = slug (sanitized)
   plan: 'starter' | 'pro' | 'enterprise';
 }

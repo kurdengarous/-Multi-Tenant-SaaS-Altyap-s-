@@ -8,7 +8,7 @@ import { tenantStorage, TenantContext } from '../common/tenant-context';
  *
  * Resolution order:
  *  1. `X-Tenant` header        (used by frontend & curl in dev)
- *  2. First subdomain of Host  (acme.app.local → "acme")
+ *  2. First subdomain of Host  (tatvantv.app.local → "tatvantv")
  *
  * If no tenant is found we still allow the request through *without*
  * a context — public endpoints like /api/health and /api/tenants/list

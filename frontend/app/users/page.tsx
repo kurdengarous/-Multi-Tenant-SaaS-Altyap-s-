@@ -7,10 +7,13 @@ export default function Users() {
   const [email, setEmail] = useState('');
   const [name, setName]   = useState('');
   const [role, setRole]   = useState<'admin' | 'member'>('member');
+  const [password, setPassword] = useState('');
   const [err, setErr]     = useState('');
 
   async function load() {
-    try { setList(await api.get('/users')); }
+    try { 
+      setList(await api.get('/users')); 
+    }
     catch (e: any) { setErr(e.message); }
   }
   useEffect(() => { load(); }, []);
@@ -18,18 +21,16 @@ export default function Users() {
   async function invite(e: any) {
     e.preventDefault(); setErr('');
     try {
-      await api.post('/users', { email, name, role });
-      setEmail(''); setName(''); load();
+      await api.post('/users', { email, name, role, password });
+      setEmail(''); setName(''); setPassword(''); load();
     } catch (e: any) { setErr(e.message); }
   }
 
   return (
     <div className="space-y-6">
-      <h1 className="text-3xl font-bold">Kullanıcılar</h1>
+      <h1 className="text-3xl font-bold">Muhabirler</h1>
       <p className="text-white/60 text-sm">
-        Kimlikler <span className="kbd">public.users</span> içinde; kiracı rolü ise
-        <span className="kbd ml-1">public.tenant_users</span> içinde tutulur. Aynı e-posta
-        Acme'de yönetici, Nova'da üye olabilir.
+        Ajans bünyesinde görev yapan muhabirler. Her ajansın kendi muhabir listesi izoledir.
       </p>
 
       <form onSubmit={invite} className="card grid gap-3 md:grid-cols-4">
@@ -39,7 +40,8 @@ export default function Users() {
           <option value="member">Üye</option>
           <option value="admin">Yönetici</option>
         </select>
-        <button className="btn btn-primary md:col-span-4">Davet et (yalnızca yönetici)</button>
+        <input className="input md:col-span-2" type="password" placeholder="Başlangıç Şifresi" value={password} onChange={e => setPassword(e.target.value)} />
+        <button className="btn btn-primary md:col-span-2">Davet et (yalnızca yönetici)</button>
         {err && <div className="text-red-300 text-sm md:col-span-4">{err}</div>}
       </form>
 
@@ -53,7 +55,11 @@ export default function Users() {
               <tr key={u.id} className="border-t border-white/10">
                 <td className="py-2">{u.email}</td>
                 <td>{u.name}</td>
-                <td><span className="kbd">{u.role}</span></td>
+                <td>
+                  <span className={`kbd ${u.role === 'admin' ? 'bg-brand-500/20 text-brand-300 border border-brand-500/30' : ''}`}>
+                    {u.role === 'admin' ? 'Yönetici' : 'Üye'}
+                  </span>
+                </td>
               </tr>
             ))}
           </tbody>

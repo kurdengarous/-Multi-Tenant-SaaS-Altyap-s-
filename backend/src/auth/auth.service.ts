@@ -22,7 +22,7 @@ export class AuthService {
   /**
    * Login is *tenant-scoped*. The same email can exist in multiple tenants;
    * the issued JWT is bound to ONE (user, tenant) pair so a token from
-   * Acme cannot be replayed against XYZ.
+   * TatvanTV cannot be replayed against AhlatTV.
    */
   async login(email: string, password: string, tenant: TenantContext) {
     const users = await this.db.publicQuery<any>(

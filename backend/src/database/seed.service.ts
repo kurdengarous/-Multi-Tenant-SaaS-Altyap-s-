@@ -19,9 +19,9 @@ export class SeedService {
 
   async run() {
     const tenants: { slug: string; name: string; plan: PlanName }[] = [
-      { slug: 'acme', name: 'Acme Corp',    plan: 'pro' },
-      { slug: 'xyz',  name: 'XYZ Industries', plan: 'starter' },
-      { slug: 'nova', name: 'Nova Labs',    plan: 'enterprise' },
+      { slug: 'tatvantv', name: 'Tatvan TV',    plan: 'pro' },
+      { slug: 'ahlattv',  name: 'Ahlat TV', plan: 'starter' },
+      { slug: 'norsintv', name: 'Norşin TV',    plan: 'enterprise' },
     ];
 
     const passwordHash = await bcrypt.hash('password123', 10);
