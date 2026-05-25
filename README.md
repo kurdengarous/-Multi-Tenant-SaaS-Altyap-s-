@@ -422,7 +422,15 @@ Bu proje **MIT Lisansı** ile lisanslanmıştır. Ayrıntılar için [`LICENSE`]
 ```
 MIT License © 2025 — Akademik Proje (Web Programlama Dersi Final Ödevi)
 ```
+## Iletisim
 
+- **Ogrenci:** AHMET ENES KIRANSAL
+- **Ogrenci No:** 24080410214
+- **E-posta:** enes_kiransal@hotmail.com
+- **Ders:** BMU1422 · Mobil Programlama
+- **Kurum:** Bitlis Eren Universitesi — Muhendislik-Mimarlik Fakultesi
+
+---
 > **Üretim Ortamı Uyarısı:** Bu proje bir ders kapsamında hazırlanmıştır.
 > Gerçek bir ortama taşımadan önce `JWT_SECRET`, veritabanı parolası ve
 > tüm ortam değişkenlerinin güçlü değerlerle değiştirilmesi zorunludur.
